@@ -3,7 +3,7 @@
     "name": "tyrants_of_castle_stiel",
     "slug": "tyrants_of_castle_stiel",
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "landscape",
     "icon": "./assets/images/icon.png",
     "scheme": "tyrantsofcastlestiel",
     "userInterfaceStyle": "automatic",
