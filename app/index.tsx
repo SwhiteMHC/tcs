@@ -16,8 +16,12 @@ import { useNavigation } from "expo-router";
 import { useEffect } from "react";
 
 // Styles
+import { AnimatedIconName } from "@/components/CustomAnimatedBaseIconH/CustomAnimatedBaseIconH";
+import CustomAnimatedNavigationButton from "@/components/CustomAnimatedNavigationButton/CustomAnimatedNavigationButton";
+import { useColorScheme } from "nativewind";
 
 export default function Home() {
+  const { colorScheme, setColorScheme } = useColorScheme();
   const navigation = useNavigation();
 
   useEffect(() => {
@@ -71,15 +75,29 @@ export default function Home() {
               </Text>
             </View>
           </View>
-          <View style={{ flex: 2, borderWidth: 2, borderColor: "red" }}>
-            <View
-              style={{
-                flex: 1,
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <Text style={{ color: "#fff", fontSize: 18 }}>Control Bar</Text>
+          <View
+            style={{
+              flex: 2,
+              borderWidth: 2,
+              borderColor: "green",
+              alignSelf: "stretch",
+            }}
+          >
+            <View className="flex flex-1 flex-row justify-end items-center gap-x-2">
+              <CustomAnimatedNavigationButton
+                title="Exit"
+                icon={AnimatedIconName.RUN}
+                size={32}
+                flip={true}
+                shouldAnimate={true}
+              />
+              <CustomAnimatedNavigationButton
+                title="Enter"
+                icon={AnimatedIconName.RUN}
+                size={32}
+                flip={false}
+                shouldAnimate={false}
+              />
             </View>
           </View>
           <View style={{ flex: 0.5, borderWidth: 2, borderColor: "red" }}>
