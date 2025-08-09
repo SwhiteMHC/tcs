@@ -1,11 +1,17 @@
 // React Native
-import { Text, View } from "react-native";
+import {
+  ImageBackground,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 
 // Components
-import Header from "@/components/Header/Header";
-import { ThemeToggle } from "@/components/ThemeToggle";
 
 // Hooks
+import Header from "@/components/Header/Header";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { useNavigation } from "expo-router";
 import { useEffect } from "react";
 
@@ -19,61 +25,76 @@ export default function Home() {
   }, [navigation]);
 
   return (
-    <View className="flex-1 bg-bg-light dark:bg-bg-dark">
-      {/* Column container: let children STRETCH, not center */}
-      <View className="flex-1 flex-col">
-        {/* Header */}
-        <View
-          style={{ flex: 0.5 }}
-          className="self-stretch border-2 border-red-900 p-4"
-        >
-          {/* Row: allow left/right to shrink within the row */}
-          <View className="flex-row items-center justify-between">
-            {/* Left side can grow/shrink; min-w-0 is the key to prevent overflow */}
-            <View className="flex-1 min-w-0">
-              <Header crumbs={["Castle Stiel", "Access Screen"]} />
-            </View>
-            {/* Right side toggle; prevent it from stretching the row */}
-            <View className="shrink-0">
+    <View style={{ flex: 1, position: "relative" }}>
+      {/* Background image UNDER everything */}
+      <ImageBackground
+        source={require("../assets/bg/tcs_castle_stiel_bg_transparent_2732_2048.png")}
+        resizeMode="cover"
+        style={[StyleSheet.absoluteFill, { position: "absolute", zIndex: -1 }]}
+        pointerEvents="none"
+      />
+
+      {/* Dim overlay UNDER content */}
+      <View
+        style={[StyleSheet.absoluteFill, { position: "absolute", zIndex: -2 }]}
+        // if you use NativeWind:
+        className="bg-white/50 dark:bg-black"
+      />
+
+      {/* Foreground content (no absolute) */}
+      <SafeAreaView style={{ flex: 1 }}>
+        <View style={{ flex: 1, flexDirection: "column" }}>
+          <View
+            style={{
+              flex: 0.5,
+              padding: 16,
+              borderWidth: 2,
+              borderColor: "red",
+            }}
+            className="flex flex-row items-center justify-between"
+          >
+            <Header crumbs={["Castle Stiel", "Access Screen"]} />
+            <View>
               <ThemeToggle />
             </View>
           </View>
-        </View>
-
-        {/* Main */}
-        <View
-          style={{ flex: 7 }}
-          className="self-stretch border-2 border-red-700"
-        >
-          <View className="flex-1 items-center justify-center">
-            <Text className="text-text-light dark:text-text-dark text-2xl">
-              Main Play Area
-            </Text>
+          <View style={{ flex: 12, borderWidth: 2, borderColor: "red" }}>
+            <View
+              style={{
+                flex: 1,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Text style={{ color: "#fff", fontSize: 22 }}>
+                Main Play Area
+              </Text>
+            </View>
+          </View>
+          <View style={{ flex: 2, borderWidth: 2, borderColor: "red" }}>
+            <View
+              style={{
+                flex: 1,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Text style={{ color: "#fff", fontSize: 18 }}>Control Bar</Text>
+            </View>
+          </View>
+          <View style={{ flex: 0.5, borderWidth: 2, borderColor: "red" }}>
+            <View
+              style={{
+                flex: 1,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Text style={{ color: "#fff" }}>Footer</Text>
+            </View>
           </View>
         </View>
-
-        {/* Control Bar */}
-        <View
-          style={{ flex: 2 }}
-          className="self-stretch border-2 border-red-700"
-        >
-          <View className="flex-1 items-center justify-center">
-            <Text className="text-text-light dark:text-text-dark text-2xl">
-              Card Drive
-            </Text>
-          </View>
-        </View>
-
-        {/* Footer */}
-        <View
-          style={{ flex: 0.5 }}
-          className="self-stretch border-2 border-red-700"
-        >
-          <View className="flex-1 items-center justify-center">
-            <Text className="text-text-light dark:text-text-dark">FOOTER</Text>
-          </View>
-        </View>
-      </View>
+      </SafeAreaView>
     </View>
   );
 }

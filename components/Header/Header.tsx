@@ -7,18 +7,15 @@ interface HeaderProps {
 
 export default function Header({ crumbs }: HeaderProps) {
   return (
-    <View className="flex flex-row w-full items-start">
+    <View className="flex flex-1 w-full flex-row items-center">
       {crumbs.map((crumb, index) => (
-        <View key={index} className="flex-row items-center">
-          <Text className="text-text-light dark:text-text-dark text-xl">
-            {crumb}
-          </Text>
-          {index < crumbs.length - 1 && (
-            <Text className="mx-2 text-text-light dark:text-text-dark text-xl">
-              {" » "}
-            </Text>
-          )}
-        </View>
+        <Text
+          key={index}
+          className="text-text-light dark:text-text-dark text-xl"
+        >
+          {crumb}
+          {index < crumbs.length - 1 && " » "}
+        </Text>
       ))}
     </View>
   );

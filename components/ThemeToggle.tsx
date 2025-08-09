@@ -1,6 +1,7 @@
 import { useColorScheme } from "nativewind";
 import React from "react";
-import { Pressable, Text, View } from "react-native";
+import { Pressable, Text, TouchableOpacity, View } from "react-native";
+import CustomIcon from "./CustomIcon/CustomIcon";
 
 const Chip: React.FC<{
   label: string;
@@ -20,20 +21,18 @@ const Chip: React.FC<{
 );
 
 export const ThemeToggle: React.FC = () => {
-  const { colorScheme, setColorScheme, toggleColorScheme } = useColorScheme();
+  const { colorScheme, setColorScheme } = useColorScheme();
 
   return (
     <View className="flex-row items-center gap-2">
-      <Chip
-        label="Light"
-        active={colorScheme === "light"}
-        onPress={() => setColorScheme("light")}
-      />
-      <Chip
-        label="Dark"
-        active={colorScheme === "dark"}
-        onPress={() => setColorScheme("dark")}
-      />
+      <TouchableOpacity
+        className="border-2 border-black border-solid dark:border-white rounded-xl p-2"
+        onPress={() =>
+          setColorScheme(colorScheme === "dark" ? "light" : "dark")
+        }
+      >
+        <CustomIcon name={colorScheme === "dark" ? "moon" : "moonOff"} />
+      </TouchableOpacity>
     </View>
   );
 };
