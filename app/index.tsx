@@ -28,6 +28,8 @@ export default function Home() {
     navigation.setOptions({ headerShown: false });
   }, [navigation]);
 
+  const color = colorScheme === "dark" ? "white" : "black";
+
   return (
     <View style={{ flex: 1, position: "relative" }}>
       {/* Background image UNDER everything */}
@@ -53,7 +55,7 @@ export default function Home() {
               flex: 0.5,
               padding: 16,
               borderWidth: 2,
-              borderColor: "red",
+              borderColor: color,
             }}
             className="flex flex-row items-center justify-between"
           >
@@ -62,7 +64,7 @@ export default function Home() {
               <ThemeToggle />
             </View>
           </View>
-          <View style={{ flex: 12, borderWidth: 2, borderColor: "red" }}>
+          <View style={{ flex: 12, borderWidth: 2, borderColor: color }}>
             <View
               style={{
                 flex: 1,
@@ -70,16 +72,14 @@ export default function Home() {
                 justifyContent: "center",
               }}
             >
-              <Text style={{ color: "#fff", fontSize: 22 }}>
-                Main Play Area
-              </Text>
+              <Text style={{ color: color, fontSize: 22 }}>Main Play Area</Text>
             </View>
           </View>
           <View
             style={{
               flex: 2,
               borderWidth: 2,
-              borderColor: "green",
+              borderColor: color,
               alignSelf: "stretch",
             }}
           >
@@ -100,7 +100,7 @@ export default function Home() {
               />
             </View>
           </View>
-          <View style={{ flex: 0.5, borderWidth: 2, borderColor: "red" }}>
+          <View style={{ flex: 0.5, borderWidth: 2, borderColor: color }}>
             <View
               style={{
                 flex: 1,
@@ -108,7 +108,7 @@ export default function Home() {
                 justifyContent: "center",
               }}
             >
-              <Text style={{ color: "#fff" }}>Footer</Text>
+              <Text style={{ color: color }}></Text>
             </View>
           </View>
         </View>
