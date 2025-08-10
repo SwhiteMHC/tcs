@@ -10,17 +10,18 @@ export class AppStore {
   constructor() {
     makeAutoObservable(this);
     this.tyrants = [
-      { name: "Red" },
-      { name: "Green" },
-      { name: "Blue" },
-      { name: "Orange" },
-      { name: "Unknown" },
-      { name: "Unknown" },
-      { name: "Unknown" },
-      { name: "Unknown" },
-      { name: "Unknown" },
-      { name: "Unknown" },
-      { name: "Unknown" },
+      { name: "Red", disabled: false },
+      { name: "Green", disabled: false },
+      { name: "Blue", disabled: false },
+      { name: "Orange", disabled: false },
+      { name: "Unknown", disabled: true },
+      { name: "Unknown", disabled: true },
+      { name: "Unknown", disabled: true },
+      { name: "Unknown", disabled: true },
+      { name: "Unknown", disabled: true },
+      { name: "Unknown", disabled: true },
+      { name: "Unknown", disabled: true },
+      { name: "Unknown", disabled: true },
     ];
   }
 }
