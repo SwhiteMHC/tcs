@@ -1,18 +1,9 @@
 // components/Icon.tsx
+import { ICON_MAPPING, IconName } from "@/types/icons.types";
 import { useColorScheme } from "nativewind";
 import React, { useEffect, useRef } from "react";
 import { Animated, View } from "react-native";
 import { SvgProps } from "react-native-svg";
-import Run from "../../assets/icons/run.svg";
-
-export enum AnimatedIconName {
-  RUN = "run",
-}
-const icons: Record<AnimatedIconName, any> = {
-  [AnimatedIconName.RUN]: Run,
-};
-
-type IconName = keyof typeof icons;
 
 interface IconProps extends SvgProps {
   name: IconName;
@@ -29,7 +20,7 @@ export default function CustomAnimatedBaseIconH({
 }: IconProps & { flip?: boolean }) {
   const { colorScheme } = useColorScheme();
   color = colorScheme === "dark" ? "white" : "black";
-  const Component = icons[name];
+  const Component = ICON_MAPPING[name];
   const flipStyle = flip ? { transform: [{ scaleX: -1 }] } : undefined;
 
   // Animations for each layer

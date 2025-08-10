@@ -1,6 +1,7 @@
-import { Text, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 
 // Components
+import { RelativePathString, useRouter } from "expo-router";
 import CustomAnimatedBaseIconH, {
   AnimatedIconName,
 } from "../CustomAnimatedBaseIconH/CustomAnimatedBaseIconH";
@@ -12,6 +13,7 @@ interface CustomAnimatedNavigationButtonProps {
   size: number;
   flip: boolean;
   shouldAnimate?: boolean;
+  destination: string;
 }
 
 export default function CustomAnimatedNavigationButton({
@@ -20,9 +22,18 @@ export default function CustomAnimatedNavigationButton({
   size,
   flip,
   shouldAnimate,
+  destination,
 }: CustomAnimatedNavigationButtonProps) {
+  const router = useRouter();
+
   return (
-    <View className="flex flex-col border-2 border-solid border-black dark:border-white p-5 rounded-lg justify-center items-center">
+    <TouchableOpacity
+      onPress={() => {
+        router.push(destination as RelativePathString);
+      }}
+      activeOpacity={0.7}
+      className="w-32 flex flex-col border-2 border-solid border-black dark:border-white p-5 rounded-lg justify-center items-center"
+    >
       <View>
         {shouldAnimate ? (
           <CustomAnimatedBaseIconH name={icon} size={size} flip={flip} />
@@ -31,6 +42,6 @@ export default function CustomAnimatedNavigationButton({
         )}
       </View>
       <Text className="text-2xl text-black dark:text-white">{title}</Text>
-    </View>
+    </TouchableOpacity>
   );
 }
