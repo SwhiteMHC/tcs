@@ -2,36 +2,8 @@
 import { useColorScheme } from "nativewind";
 import { Text, View } from "react-native";
 import CustomIcon from "../CustomIcon/CustomIcon";
-
-interface FilledStarProps {
-  color: string;
-  size: number;
-}
-
-function FilledStar({ color, size }: FilledStarProps) {
-  return (
-    <CustomIcon
-      name="starOutline"
-      width={size}
-      height={size}
-      strokeWidth={1}
-      stroke={color}
-      fill={color}
-    />
-  );
-}
-
-function OutlinedStar({ color, size }: FilledStarProps) {
-  return (
-    <CustomIcon
-      name="starOutline"
-      width={size}
-      height={size}
-      strokeWidth={1}
-      stroke={color}
-    />
-  );
-}
+import FilledStar from "../FilledStar/FilledStar";
+import OutlinedStar from "../OutlinedStar/OutlinedStar";
 
 export default function TyrantOrderColumn() {
   const { colorScheme } = useColorScheme();
@@ -40,7 +12,7 @@ export default function TyrantOrderColumn() {
   return (
     <View
       style={{ flex: 1, flexDirection: "column" }}
-      className="flex flex-1 border-2 border-solid border-black"
+      className="flex flex-1 border-2 border-solid border-black dark:border-white"
     >
       <View className="flex items-center justify-center h-20">
         <Text className="text-black dark:text-white text-lg text-center">

@@ -9,7 +9,7 @@ export default function TyrantSelectColumn() {
   return (
     <View
       style={{ flex: 1, flexDirection: "column" }}
-      className="border-2 border-solid border-red-500"
+      className="border-2 border-solid border-black dark:border-white"
     >
       <View className="flex items-center justify-center h-20">
         <Text className="text-black dark:text-white text-lg text-center">

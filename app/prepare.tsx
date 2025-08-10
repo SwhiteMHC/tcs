@@ -14,6 +14,7 @@ import { useEffect } from "react";
 
 // Store
 import CardDrive from "@/components/CardDrive/CardDrive";
+import CastleStielFacilitiesColumn from "@/components/CastleStielFacilitiesColumn/CastleStielFacilitiesColumn";
 import Footer from "@/components/Footer/Footer";
 import TyrantOrderColumn from "@/components/TyrantOrderColumn/TyrantOrderColumn";
 import TyrantSelectColumn from "@/components/TyrantSelectColumn/TyrantSelectColumn";
@@ -43,10 +44,7 @@ export default observer(function Prepare() {
           style={{ flex: 12, borderWidth: 2, borderColor: color }}
         >
           <TyrantSelectColumn />
-          <View
-            style={{ flex: 2, flexDirection: "column" }}
-            className="flex flex-2 border-2 border-solid border-green-500"
-          ></View>
+          <CastleStielFacilitiesColumn />
           <TyrantOrderColumn />
         </View>
         <CardDrive />
