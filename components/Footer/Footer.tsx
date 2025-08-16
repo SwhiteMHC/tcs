@@ -1,6 +1,8 @@
 // React Native
-import { useColorScheme } from "nativewind";
 import { Text, View } from "react-native";
+
+// Styles
+import { useColorScheme } from "nativewind";
 
 export default function Footer() {
   const { colorScheme } = useColorScheme();

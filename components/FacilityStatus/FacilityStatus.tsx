@@ -1,6 +1,10 @@
 // React Native
-import { IconName } from "@/types/icons.types";
 import { Text, View } from "react-native";
+
+// Types
+import { IconName } from "@/types/icons.types";
+
+// Components
 import CustomIcon from "../CustomIcon/CustomIcon";
 import FilledStar from "../FilledStar/FilledStar";
 import OutlinedStar from "../OutlinedStar/OutlinedStar";

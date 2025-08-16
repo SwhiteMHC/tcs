@@ -5,4 +5,5 @@ export type Facility = {
   rank: number;
   name: string;
   color: string;
+  disabled: boolean;
 };

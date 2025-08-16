@@ -1,15 +1,19 @@
+// React
 import { Text, TouchableOpacity, View } from "react-native";
 
-// Components
+// Router
 import { RelativePathString, useRouter } from "expo-router";
-import CustomAnimatedBaseIconH, {
-  AnimatedIconName,
-} from "../CustomAnimatedBaseIconH/CustomAnimatedBaseIconH";
+
+// Components
+import CustomAnimatedBaseIconH from "../CustomAnimatedBaseIconH/CustomAnimatedBaseIconH";
 import CustomBaseIconH from "../CustomBaseIconH/CustomBaseIconH";
+
+// Types
+import { IconName } from "@/types/icons.types";
 
 interface CustomAnimatedNavigationButtonProps {
   title: string;
-  icon: AnimatedIconName;
+  icon: IconName;
   size: number;
   flip: boolean;
   shouldAnimate?: boolean;

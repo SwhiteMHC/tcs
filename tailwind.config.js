@@ -10,6 +10,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        tyrantRed: "#FF0000",
+        tyrantGreen: "#26FF00",
+        tyrantBlue: "#0040FF",
+        tyrantOrange: "#FF8C00",
+        archetypePower: "#ef4444",
+        archetypeControl: "#84cc16",
+        archetypeMove: "#3b82f6",
+        archetypeAugment: "#f97316",
+        archetypeDestroy: "#ef4444",
         bg: {
           dark: "#0c0a09",
           light: "#fafaf9",

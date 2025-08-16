@@ -1,7 +1,11 @@
 // React Native
+import { Text, TouchableOpacity, View } from "react-native";
+
+// Store
 import { useStore } from "@/store/provider";
 import { observer } from "mobx-react-lite";
-import { Text, TouchableOpacity, View } from "react-native";
+
+//Components
 import CustomIcon from "../CustomIcon/CustomIcon";
 
 interface TyrantNameSelectProps {
@@ -19,10 +23,13 @@ export default observer(function TyrantNameSelect({
 
   return (
     <TouchableOpacity
-      disabled={tyrantsSelected === 3 && !selected}
+      disabled={(tyrantsSelected === 3 && !selected) || disabled}
       onPress={() => toggleSelectTyrant(name)}
+      className={
+        (tyrantsSelected === 3 && !selected) || disabled ? "opacity-50" : ""
+      }
     >
-      <View className="flex flex-row justify-between items-center border-2 border-solid dark:border-white border-black p-2">
+      <View className="flex flex-row justify-between items-center border-2 border-solid dark:border-white  border-black p-2">
         {selected ? (
           <CustomIcon name="squareCheck" />
         ) : (

@@ -1,6 +1,8 @@
 // React Native
 import { useColorScheme } from "nativewind";
 import { View } from "react-native";
+
+// Components
 import CustomAnimatedNavigationButton from "../CustomAnimatedNavigationButton/CustomAnimatedNavigationButton";
 
 export default function CardDrive() {
@@ -16,7 +18,7 @@ export default function CardDrive() {
         alignSelf: "stretch",
       }}
     >
-      <View className="flex flex-1 flex-row justify-end items-center gap-x-2">
+      <View className="flex flex-1 flex-row justify-end items-center gap-x-2 p-2">
         <CustomAnimatedNavigationButton
           title="Exit"
           icon={"run"}

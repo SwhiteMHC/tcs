@@ -42,7 +42,7 @@ export default observer(function CastleStielFacilitiesColumn() {
                 icon={facility.icon}
                 rank={facility.rank}
                 name={facility.name}
-                color={color}
+                color={facility.color}
               />
             ))}
           </View>
@@ -64,12 +64,13 @@ export default observer(function CastleStielFacilitiesColumn() {
             Tyrant Archetypes:
           </Text>
           <View className="flex flex-row">
-            {archetypes.map((archetype) => (
+            {Array.from(archetypes.values()).map((archetype) => (
               <TyrantArchetypeStatus
                 key={archetype.name}
                 icon={archetype.icon}
                 name={archetype.name}
-                color={color}
+                color={archetype.color}
+                disabled={archetype.disabled}
               />
             ))}
           </View>

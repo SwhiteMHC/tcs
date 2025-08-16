@@ -24,13 +24,14 @@ export default function CustomIcon({
 }: IconProps) {
   const { colorScheme } = useColorScheme();
 
-  color = colorScheme === "dark" ? "white" : "black";
+  const stroke =
+    color !== "white" ? color : colorScheme === "dark" ? "white" : "black";
   const Component = ICON_MAPPING[name];
   return (
     <Component
       width={size}
       height={size}
-      stroke={color}
+      stroke={stroke}
       {...props}
       strokeWidth={strokeWidth}
     />

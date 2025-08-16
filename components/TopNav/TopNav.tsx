@@ -1,6 +1,10 @@
 // React Native
-import { useColorScheme } from "nativewind";
 import { View } from "react-native";
+
+// Styles
+import { useColorScheme } from "nativewind";
+
+// Components
 import Header from "../Header/Header";
 import { ThemeToggle } from "../ThemeToggle";
 

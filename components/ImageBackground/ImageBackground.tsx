@@ -1,3 +1,4 @@
+// Components
 import { ImageBackground, View } from "react-native";
 
 export default function CustomImageBackground() {

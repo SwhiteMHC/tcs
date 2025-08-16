@@ -1,8 +1,12 @@
-// components/Icon.tsx
-import { ICON_MAPPING, IconName } from "@/types/icons.types";
-import { useColorScheme } from "nativewind";
+// React
 import React from "react";
 import { View } from "react-native";
+
+// Types
+import { ICON_MAPPING, IconName } from "@/types/icons.types";
+
+// Styles
+import { useColorScheme } from "nativewind";
 import { SvgProps } from "react-native-svg";
 
 interface IconProps extends SvgProps {
