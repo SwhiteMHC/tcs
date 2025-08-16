@@ -1,9 +1,16 @@
 // React Native
+import { NavigationCard } from "@/types/card.types";
 import { useColorScheme } from "nativewind";
 import { View } from "react-native";
 import CustomAnimatedNavigationButton from "../CustomAnimatedNavigationButton/CustomAnimatedNavigationButton";
 
-export default function CardDrive() {
+interface MainMenuCardDriveProps {
+  cardData: NavigationCard[];
+}
+
+export default function MainMenuCardDrive({
+  cardData,
+}: MainMenuCardDriveProps) {
   const { colorScheme } = useColorScheme();
   const color = colorScheme === "dark" ? "white" : "black";
 
@@ -17,22 +24,17 @@ export default function CardDrive() {
       }}
     >
       <View className="flex flex-1 flex-row justify-end items-center gap-x-2 p-2">
-        <CustomAnimatedNavigationButton
-          title="Exit"
-          icon={"run"}
-          size={32}
-          flip={true}
-          shouldAnimate={false}
-          destination="/"
-        />
-        <CustomAnimatedNavigationButton
-          title="Enter"
-          icon={"run"}
-          size={32}
-          flip={false}
-          shouldAnimate={false}
-          destination="/prepare"
-        />
+        {cardData.map((card) => (
+          <CustomAnimatedNavigationButton
+            key={card.title}
+            title={card.title}
+            icon={card.icon}
+            size={card.size}
+            flip={card.flip}
+            shouldAnimate={card.shouldAnimate}
+            destination={card.destination}
+          />
+        ))}
       </View>
     </View>
   );

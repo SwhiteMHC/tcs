@@ -1,8 +1,9 @@
 // React Native
-import { ImageBackground, SafeAreaView, StyleSheet, View } from "react-native";
+import { SafeAreaView, View } from "react-native";
 
 // Components
 import Overlay from "@/components/Overlay/Overlay";
+import PrepareMenuCardDrive from "@/components/PrepareMenuCardDrive/PrepareMenuCardDrive";
 import TopNav from "@/components/TopNav/TopNav";
 
 // Hooks
@@ -13,11 +14,11 @@ import { useEffect } from "react";
 // Styles
 
 // Store
-import CardDrive from "@/components/CardDrive/CardDrive";
 import CastleStielFacilitiesColumn from "@/components/CastleStielFacilitiesColumn/CastleStielFacilitiesColumn";
 import Footer from "@/components/Footer/Footer";
 import TyrantOrderColumn from "@/components/TyrantOrderColumn/TyrantOrderColumn";
 import TyrantSelectColumn from "@/components/TyrantSelectColumn/TyrantSelectColumn";
+import { prepareMenuCardDrive } from "@/store/data/card-data";
 import { observer } from "mobx-react-lite";
 
 export default observer(function Prepare() {
@@ -31,11 +32,11 @@ export default observer(function Prepare() {
 
   return (
     <SafeAreaView style={{ flex: 1, position: "relative" }}>
-      <ImageBackground
+      {/* <ImageBackground
         source={require("../assets/bg/tcs_castle_stiel_right_half_bg_transparent_2732_2048.png")}
         resizeMode="cover"
         style={[StyleSheet.absoluteFill, { position: "absolute", zIndex: -1 }]}
-      />
+      /> */}
       <Overlay />
       <View style={{ flex: 1, flexDirection: "column" }}>
         <TopNav crumbs={["Castle Stiel", "Prepare for Ascent"]} />
@@ -47,7 +48,7 @@ export default observer(function Prepare() {
           <CastleStielFacilitiesColumn />
           <TyrantOrderColumn />
         </View>
-        <CardDrive />
+        <PrepareMenuCardDrive cardData={prepareMenuCardDrive} />
         <Footer />
       </View>
     </SafeAreaView>

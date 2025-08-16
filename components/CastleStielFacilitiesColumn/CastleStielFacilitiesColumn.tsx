@@ -42,7 +42,7 @@ export default observer(function CastleStielFacilitiesColumn() {
                 icon={facility.icon}
                 rank={facility.rank}
                 name={facility.name}
-                color={color}
+                color={facility.color}
               />
             ))}
           </View>

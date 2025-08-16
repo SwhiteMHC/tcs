@@ -2,7 +2,6 @@
 import { ImageBackground, SafeAreaView, StyleSheet, View } from "react-native";
 
 // Components
-import CardDrive from "@/components/CardDrive/CardDrive";
 import Footer from "@/components/Footer/Footer";
 import GameArea from "@/components/GameArea/GameArea";
 import Overlay from "@/components/Overlay/Overlay";
@@ -10,6 +9,8 @@ import TyrantsOfCastleStiel from "@/components/TitleOverlays/TyrantsOfCastleStie
 import TopNav from "@/components/TopNav/TopNav";
 
 // Hooks
+import MainMenuCardDrive from "@/components/MainMenuCardDrive/MainMenuCardDrive";
+import { mainMenuCardDrive } from "@/store/data/card-data";
 import { useNavigation } from "expo-router";
 import { useEffect } from "react";
 
@@ -35,7 +36,7 @@ export default function Home() {
         <GameArea>
           <TyrantsOfCastleStiel />
         </GameArea>
-        <CardDrive />
+        <MainMenuCardDrive cardData={mainMenuCardDrive} />
         <Footer />
       </View>
     </SafeAreaView>

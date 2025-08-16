@@ -21,7 +21,6 @@ export default observer(function TyrantArchetypeStatus({
   disabled,
   size = 75,
 }: TyrantArchetypeStatusProps) {
-  console.log(color);
   return (
     <View className="flex flex-1 justify-center items-center border-2 border-solid border-black dark:border-white rounded-md">
       <View className="flex flex-row items-center justify-between w-full">
@@ -39,7 +38,13 @@ export default observer(function TyrantArchetypeStatus({
           color={disabled ? "#64748b" : color}
         />
       </View>
-      <CustomIcon name={icon} width={size} height={size} strokeWidth={1} />
+      <CustomIcon
+        name={icon}
+        width={size}
+        height={size}
+        strokeWidth={1}
+        stroke={disabled ? "#64748b" : color}
+      />
     </View>
   );
 });

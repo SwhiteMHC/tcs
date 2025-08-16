@@ -9,54 +9,77 @@ import {
   TyrantArchetype,
 } from "@/types/tyrant.types";
 
+// Styles
+import { NavigationCard } from "@/types/card.types.js";
+import resolveConfig from "tailwindcss/resolveConfig";
+import tailwindConfig from "../tailwind.config.js";
+const fullConfig = resolveConfig(tailwindConfig);
+
 export class AppStore {
   tyrants: Map<string, Tyrant> = new Map();
   facilities: Facility[] = [];
   archetypes: Map<string, TyrantArchetype> = new Map();
   tyrantsSelected: number = 0;
+  tyrantOrder: Map<number, Tyrant> = new Map();
+  tyrantList: Tyrant[] = [];
+  mainMenuCardDrive: NavigationCard[] = [];
 
   constructor() {
     makeAutoObservable(this);
     this.tyrants = new Map([
       [
-        "Red",
+        "Red Commander",
         {
-          name: "Red",
+          name: "Red Commander",
           disabled: false,
           selected: false,
           archetypes: [TYRANT_ARCHETYPE.POWER],
+          color: fullConfig.theme.colors.tyrantRed,
+          icon: "batteryFour",
         },
       ],
       [
-        "Green",
+        "Garos",
         {
-          name: "Green",
+          name: "Garos",
           disabled: false,
           selected: false,
           archetypes: [TYRANT_ARCHETYPE.CONTROL],
+          color: fullConfig.theme.colors.tyrantGreen,
+          icon: "control",
         },
       ],
       [
-        "Blue",
+        "Kraken",
         {
-          name: "Blue",
+          name: "Kraken",
           disabled: false,
           selected: false,
           archetypes: [TYRANT_ARCHETYPE.MOVE],
+          color: fullConfig.theme.colors.tyrantBlue,
+          icon: "arrowsMove",
         },
       ],
       [
-        "Orange",
+        "Ogre",
         {
-          name: "Orange",
+          name: "Ogre",
           disabled: false,
           selected: false,
           archetypes: [TYRANT_ARCHETYPE.AUGMENT],
+          color: fullConfig.theme.colors.tyrantOrange,
+          icon: "augment",
         },
       ],
       [
         "Unknown",
-        { name: "Unknown", disabled: true, selected: false, archetypes: [] },
+        {
+          name: "Unknown",
+          disabled: true,
+          selected: false,
+          archetypes: [],
+          color: "white",
+        },
       ],
     ]);
     this.facilities = [
@@ -121,7 +144,7 @@ export class AppStore {
           name: "Power",
           icon: "batteryFour",
           disabled: true,
-          color: "#ef4444",
+          color: fullConfig.theme.colors.tyrantRed,
         },
       ],
       [
@@ -130,7 +153,7 @@ export class AppStore {
           name: "Destroy",
           icon: "sword",
           disabled: true,
-          color: "#ef4444",
+          color: fullConfig.theme.colors.tyrantRed,
         },
       ],
       [
@@ -139,7 +162,7 @@ export class AppStore {
           name: "Control",
           icon: "control",
           disabled: true,
-          color: "#84cc16",
+          color: fullConfig.theme.colors.tyrantGreen,
         },
       ],
       [
@@ -148,7 +171,7 @@ export class AppStore {
           name: "Move",
           icon: "arrowsMove",
           disabled: true,
-          color: "#3b82f6",
+          color: fullConfig.theme.colors.tyrantBlue,
         },
       ],
       [
@@ -157,11 +180,13 @@ export class AppStore {
           name: "Augment",
           icon: "augment",
           disabled: true,
-          color: "#f97316",
+          color: fullConfig.theme.colors.tyrantOrange,
         },
       ],
     ]);
     this.tyrantsSelected = 0;
+    this.tyrantList = [];
+    this.mainMenuCardDrive = [];
   }
 
   alterTyrantCount = (selected: boolean) => {
@@ -179,18 +204,31 @@ export class AppStore {
     archetype.disabled = !selected;
   };
 
+  addTyrantToList = (tyrant: Tyrant) => {
+    this.tyrantList.push(tyrant);
+  };
+
+  removeTyrantFromList = (tyrant: Tyrant) => {
+    this.tyrantList = this.tyrantList.filter((t) => t.name !== tyrant.name);
+  };
+
   toggleSelectTyrant = (tyrant: string) => {
     // Get Tyrant Selected
     const currentTyrant = this.tyrants.get(tyrant) as Tyrant;
     const selected = !currentTyrant.selected;
-
-    console.log(selected);
 
     // Alter Tyrant Count
     this.alterTyrantCount(selected);
 
     // Alter Archetypes
     this.alterArchetypeList(currentTyrant, selected);
+
+    // Create Tyrant List
+    if (selected) {
+      this.addTyrantToList(currentTyrant);
+    } else {
+      this.removeTyrantFromList(currentTyrant);
+    }
 
     // Set Tyrant Selected
     this.tyrants.set(tyrant, {

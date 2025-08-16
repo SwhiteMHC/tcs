@@ -5,6 +5,8 @@ export type Tyrant = {
   disabled: boolean;
   selected: boolean;
   archetypes: string[];
+  color: string;
+  icon?: IconName;
 };
 
 export type TyrantArchetype = {

@@ -13,11 +13,16 @@ import CubeUnfolded from "../assets/icons/cube-unfolded.svg";
 import Deselect from "../assets/icons/deselect.svg";
 import Diamond from "../assets/icons/diamond.svg";
 import FileBarcode from "../assets/icons/file-barcode.svg";
+import GarosIcon from "../assets/icons/garos_icon.svg";
+import KrakenIcon from "../assets/icons/kraken_icon.svg";
 import LineScan from "../assets/icons/line-scan.svg";
 import LockOpen from "../assets/icons/lock-open.svg";
 import Lock from "../assets/icons/lock.svg";
 import MoonOff from "../assets/icons/moon-off.svg";
 import Moon from "../assets/icons/moon.svg";
+import OgreIcon from "../assets/icons/ogre_icon.svg";
+import PlayFilled from "../assets/icons/player-play.svg";
+import RedIcon from "../assets/icons/red_icon.svg";
 import Robot from "../assets/icons/robot.svg";
 import Run from "../assets/icons/run.svg";
 import SquareCheck from "../assets/icons/square-check.svg";
@@ -68,6 +73,11 @@ export const ICON_MAPPING = {
   swords: Swords,
   circleMinus: CircleMinus,
   circleCheck: CircleCheck,
+  garosIcon: GarosIcon,
+  krakenIcon: KrakenIcon,
+  ogreIcon: OgreIcon,
+  redIcon: RedIcon,
+  playFilled: PlayFilled,
 };
 
 export type IconName = keyof typeof ICON_MAPPING;
