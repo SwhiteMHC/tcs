@@ -24,7 +24,7 @@ export default function ResourceStatus({
   const color = colorScheme === "dark" ? "white" : "black";
 
   return (
-    <View className="flex flex-row items-center">
+    <View className="flex flex-row items-center gap-x-2">
       <CustomIcon name={icon} color={color} />
       <Text className="text-text-light dark:text-text-dark text-xl">
         :{formatNumber(value)}

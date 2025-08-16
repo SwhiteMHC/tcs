@@ -4,19 +4,17 @@ import { SafeAreaView, View } from "react-native";
 // Components
 import GameArea from "@/components/GameArea/GameArea";
 import Overlay from "@/components/Overlay/Overlay";
-import TyrantsOfCastleStiel from "@/components/TitleOverlays/TyrantsOfCastleStiel";
 import TopNav from "@/components/TopNav/TopNav";
 
 // Hooks
 import DataFooter from "@/components/DataFooter/DataFooter";
-import MainMenuCardDrive from "@/components/MainMenuCardDrive/MainMenuCardDrive";
-import { mainMenuCardDrive } from "@/store/data/card-data";
+import TyrantFloorCardDrive from "@/components/TyrantFloorCardDrive/TyrantFloorCardDrive";
 import { useNavigation } from "expo-router";
 import { useEffect } from "react";
 
 // Styles
 
-export default function Home() {
+export default function Debug() {
   const navigation = useNavigation();
 
   useEffect(() => {
@@ -33,10 +31,8 @@ export default function Home() {
       <Overlay />
       <View style={{ flex: 1, flexDirection: "column" }}>
         <TopNav crumbs={["Castle Stiel", "Tyrant: TBD", "Floor: TBD"]} />
-        <GameArea>
-          <TyrantsOfCastleStiel />
-        </GameArea>
-        <MainMenuCardDrive cardData={mainMenuCardDrive} />
+        <GameArea>{/* <TyrantsOfCastleStiel /> */}</GameArea>
+        <TyrantFloorCardDrive />
         {/* <Footer /> */}
         <DataFooter />
       </View>

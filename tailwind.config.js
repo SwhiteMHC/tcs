@@ -19,6 +19,10 @@ module.exports = {
         archetypeMove: "#3b82f6",
         archetypeAugment: "#f97316",
         archetypeDestroy: "#ef4444",
+        myWhite: "#f8fafc",
+        mySilver: "#c0c0c0",
+        myBronze: "#cd7f32",
+        myGold: "#ffd700",
         bg: {
           dark: "#0c0a09",
           light: "#fafaf9",

@@ -23,16 +23,17 @@ export default function CustomBaseIconH({
   ...props
 }: IconProps & { flip?: boolean }) {
   const { colorScheme } = useColorScheme();
-  color = colorScheme === "dark" ? "white" : "black";
   const Component = ICON_MAPPING[name];
   const flipStyle = flip ? { transform: [{ scaleX: -1 }] } : undefined;
+  const stroke =
+    color !== "white" ? color : colorScheme === "dark" ? "white" : "black";
 
   return (
     <View className="flex flex-row items-center justify-center">
       <Component
         width={size}
         height={size}
-        stroke={color}
+        stroke={stroke}
         {...props}
         style={[flipStyle]}
       />

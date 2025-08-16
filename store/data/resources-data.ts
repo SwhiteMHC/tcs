@@ -1,4 +1,6 @@
-export const initialResources = [
+import { Resource } from "@/types/resources.type";
+
+export const initialResources: Resource[] = [
   {
     name: "Earth",
     icon: "cube",

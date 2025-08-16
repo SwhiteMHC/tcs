@@ -8,6 +8,7 @@ import Cards from "../assets/icons/cards.svg";
 import Cart from "../assets/icons/cart.svg";
 import Rook from "../assets/icons/chess-rook.svg";
 import CircleCheck from "../assets/icons/circle-check.svg";
+import CircleKey from "../assets/icons/circle-key.svg";
 import CircleMinus from "../assets/icons/circle-minus.svg";
 import CubeUnfolded from "../assets/icons/cube-unfolded.svg";
 import Cube from "../assets/icons/cube.svg";
@@ -88,6 +89,7 @@ export const ICON_MAPPING = {
   fire: Fire,
   air: Air,
   water: Water,
+  circleKey: CircleKey,
 };
 
 export type IconName = keyof typeof ICON_MAPPING;

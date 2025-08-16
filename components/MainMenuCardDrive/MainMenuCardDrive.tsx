@@ -4,20 +4,17 @@ import { View } from "react-native";
 // Components
 import CustomAnimatedNavigationButton from "../CustomAnimatedNavigationButton/CustomAnimatedNavigationButton";
 
-// Types
-import { NavigationCard } from "@/types/card.types";
+// Store
+import { useStore } from "@/store/provider";
+import { observer } from "mobx-react-lite";
 
 // Styles
 import { useColorScheme } from "nativewind";
-interface MainMenuCardDriveProps {
-  cardData: NavigationCard[];
-}
 
-export default function MainMenuCardDrive({
-  cardData,
-}: MainMenuCardDriveProps) {
+export default observer(function MainMenuCardDrive() {
   const { colorScheme } = useColorScheme();
   const color = colorScheme === "dark" ? "white" : "black";
+  const { mainMenuCardDrive } = useStore();
 
   return (
     <View
@@ -29,7 +26,7 @@ export default function MainMenuCardDrive({
       }}
     >
       <View className="flex flex-1 flex-row justify-end items-center gap-x-2 p-2">
-        {cardData.map((card) => (
+        {mainMenuCardDrive.map((card) => (
           <CustomAnimatedNavigationButton
             key={card.title}
             title={card.title}
@@ -43,4 +40,4 @@ export default function MainMenuCardDrive({
       </View>
     </View>
   );
-}
+});
