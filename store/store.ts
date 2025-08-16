@@ -6,26 +6,27 @@ import { Facility } from "@/types/facility.types";
 import { Tyrant, TyrantArchetype } from "@/types/tyrant.types";
 
 export class AppStore {
-  tyrants: Tyrant[] = [];
+  tyrants: Map<string, Tyrant> = new Map();
   facilities: Facility[] = [];
   archetypes: TyrantArchetype[] = [];
+  tyrantsSelected: number = 0;
 
   constructor() {
     makeAutoObservable(this);
-    this.tyrants = [
-      { name: "Red", disabled: false },
-      { name: "Green", disabled: false },
-      { name: "Blue", disabled: false },
-      { name: "Orange", disabled: false },
-      { name: "Unknown", disabled: true },
-      { name: "Unknown", disabled: true },
-      { name: "Unknown", disabled: true },
-      { name: "Unknown", disabled: true },
-      { name: "Unknown", disabled: true },
-      { name: "Unknown", disabled: true },
-      { name: "Unknown", disabled: true },
-      { name: "Unknown", disabled: true },
-    ];
+    this.tyrants = new Map([
+      ["Red", { name: "Red", disabled: false, selected: false }],
+      ["Green", { name: "Green", disabled: false, selected: false }],
+      ["Blue", { name: "Blue", disabled: false, selected: false }],
+      ["Orange", { name: "Orange", disabled: false, selected: false }],
+      ["Unknown", { name: "Unknown", disabled: true, selected: false }],
+      ["Unknown", { name: "Unknown", disabled: true, selected: false }],
+      ["Unknown", { name: "Unknown", disabled: true, selected: false }],
+      ["Unknown", { name: "Unknown", disabled: true, selected: false }],
+      ["Unknown", { name: "Unknown", disabled: true, selected: false }],
+      ["Unknown", { name: "Unknown", disabled: true, selected: false }],
+      ["Unknown", { name: "Unknown", disabled: true, selected: false }],
+      ["Unknown", { name: "Unknown", disabled: true, selected: false }],
+    ]);
     this.facilities = [
       { icon: "swords", rank: 1, name: "Battle", color: "white" },
       { icon: "robot", rank: 1, name: "Assembly", color: "white" },
@@ -61,5 +62,23 @@ export class AppStore {
         icon: "augment",
       },
     ];
+    this.tyrantsSelected = 0;
   }
+
+  toggleSelectTyrant = (tyrant: string) => {
+    const currentTyrant = this.tyrants.get(tyrant) as Tyrant;
+
+    if (currentTyrant.selected) {
+      this.tyrantsSelected -= 1;
+    } else {
+      this.tyrantsSelected += 1;
+    }
+
+    this.tyrants.set(tyrant, {
+      ...currentTyrant,
+      selected: !currentTyrant.selected,
+    });
+
+    console.log(this.tyrantsSelected);
+  };
 }

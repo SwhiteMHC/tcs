@@ -1,21 +1,36 @@
 // React Native
-import { Text, View } from "react-native";
+import { useStore } from "@/store/provider";
+import { observer } from "mobx-react-lite";
+import { Text, TouchableOpacity, View } from "react-native";
 import CustomIcon from "../CustomIcon/CustomIcon";
 
 interface TyrantNameSelectProps {
   name: string;
   disabled: boolean;
+  selected: boolean;
 }
 
-export default function TyrantNameSelect({
+export default observer(function TyrantNameSelect({
   name,
   disabled,
+  selected,
 }: TyrantNameSelectProps) {
+  const { toggleSelectTyrant, tyrantsSelected } = useStore();
+
   return (
-    <View className="flex flex-row justify-between items-center border-2 border-solid dark:border-white border-black p-2">
-      <CustomIcon name="square" />
-      <Text className="text-black dark:text-white text-lg">{name}</Text>
-      <CustomIcon name={disabled ? "lock" : "lockOpen"} />
-    </View>
+    <TouchableOpacity
+      disabled={tyrantsSelected === 3 && !selected}
+      onPress={() => toggleSelectTyrant(name)}
+    >
+      <View className="flex flex-row justify-between items-center border-2 border-solid dark:border-white border-black p-2">
+        {selected ? (
+          <CustomIcon name="squareCheck" />
+        ) : (
+          <CustomIcon name="square" />
+        )}
+        <Text className="text-black dark:text-white text-lg">{name}</Text>
+        <CustomIcon name={disabled ? "lock" : "lockOpen"} />
+      </View>
+    </TouchableOpacity>
   );
-}
+});
