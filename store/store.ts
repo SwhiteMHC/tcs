@@ -11,8 +11,10 @@ import {
 
 // Styles
 import { NavigationCard } from "@/types/card.types.js";
+import { Resource } from "@/types/resources.type.js";
 import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "../tailwind.config.js";
+import { initialResources } from "./data/resources-data";
 const fullConfig = resolveConfig(tailwindConfig);
 
 export class AppStore {
@@ -23,6 +25,7 @@ export class AppStore {
   tyrantOrder: Map<number, Tyrant> = new Map();
   tyrantList: Tyrant[] = [];
   mainMenuCardDrive: NavigationCard[] = [];
+  resources: Resource[] = [];
 
   constructor() {
     makeAutoObservable(this);
@@ -187,6 +190,7 @@ export class AppStore {
     this.tyrantsSelected = 0;
     this.tyrantList = [];
     this.mainMenuCardDrive = [];
+    this.resources = initialResources;
   }
 
   alterTyrantCount = (selected: boolean) => {

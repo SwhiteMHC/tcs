@@ -10,11 +10,15 @@ import Rook from "../assets/icons/chess-rook.svg";
 import CircleCheck from "../assets/icons/circle-check.svg";
 import CircleMinus from "../assets/icons/circle-minus.svg";
 import CubeUnfolded from "../assets/icons/cube-unfolded.svg";
+import Cube from "../assets/icons/cube.svg";
 import Deselect from "../assets/icons/deselect.svg";
 import Diamond from "../assets/icons/diamond.svg";
+import Water from "../assets/icons/droplet.svg";
 import FileBarcode from "../assets/icons/file-barcode.svg";
+import Fire from "../assets/icons/flame.svg";
 import GarosIcon from "../assets/icons/garos_icon.svg";
 import KrakenIcon from "../assets/icons/kraken_icon.svg";
+import Air from "../assets/icons/leaf.svg";
 import LineScan from "../assets/icons/line-scan.svg";
 import LockOpen from "../assets/icons/lock-open.svg";
 import Lock from "../assets/icons/lock.svg";
@@ -80,6 +84,10 @@ export const ICON_MAPPING = {
   redIcon: RedIcon,
   playFilled: PlayFilled,
   logout: Logout,
+  cube: Cube,
+  fire: Fire,
+  air: Air,
+  water: Water,
 };
 
 export type IconName = keyof typeof ICON_MAPPING;
