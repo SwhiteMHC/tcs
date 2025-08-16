@@ -7,6 +7,8 @@ import Bulb from "../assets/icons/bulb.svg";
 import Cards from "../assets/icons/cards.svg";
 import Cart from "../assets/icons/cart.svg";
 import Rook from "../assets/icons/chess-rook.svg";
+import CircleCheck from "../assets/icons/circle-check.svg";
+import CircleMinus from "../assets/icons/circle-minus.svg";
 import CubeUnfolded from "../assets/icons/cube-unfolded.svg";
 import Deselect from "../assets/icons/deselect.svg";
 import Diamond from "../assets/icons/diamond.svg";
@@ -64,6 +66,8 @@ export const ICON_MAPPING = {
   control: Control,
   sword: Sword,
   swords: Swords,
+  circleMinus: CircleMinus,
+  circleCheck: CircleCheck,
 };
 
 export type IconName = keyof typeof ICON_MAPPING;

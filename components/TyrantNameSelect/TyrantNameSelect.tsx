@@ -19,10 +19,13 @@ export default observer(function TyrantNameSelect({
 
   return (
     <TouchableOpacity
-      disabled={tyrantsSelected === 3 && !selected}
+      disabled={(tyrantsSelected === 3 && !selected) || disabled}
       onPress={() => toggleSelectTyrant(name)}
+      className={
+        (tyrantsSelected === 3 && !selected) || disabled ? "opacity-50" : ""
+      }
     >
-      <View className="flex flex-row justify-between items-center border-2 border-solid dark:border-white border-black p-2">
+      <View className="flex flex-row justify-between items-center border-2 border-solid dark:border-white  border-black p-2">
         {selected ? (
           <CustomIcon name="squareCheck" />
         ) : (
