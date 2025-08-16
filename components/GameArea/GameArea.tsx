@@ -1,6 +1,8 @@
 // React Native
-import { useColorScheme } from "nativewind";
 import { View } from "react-native";
+
+// Styles
+import { useColorScheme } from "nativewind";
 
 interface GameAreaProps {
   children: React.ReactNode;

@@ -1,11 +1,19 @@
 // React Native
-import { useStore } from "@/store/provider";
-import { ICON_MAPPING } from "@/types/icons.types";
-import { Tyrant } from "@/types/tyrant.types";
-import { observer } from "mobx-react-lite";
-import { useColorScheme } from "nativewind";
 import { useState } from "react";
 import { Text, View } from "react-native";
+
+// Store
+import { useStore } from "@/store/provider";
+import { observer } from "mobx-react-lite";
+
+// Types
+import { ICON_MAPPING } from "@/types/icons.types";
+import { Tyrant } from "@/types/tyrant.types";
+
+// Styles
+import { useColorScheme } from "nativewind";
+
+// Components
 import CustomIcon from "../CustomIcon/CustomIcon";
 import FilledStar from "../FilledStar/FilledStar";
 import OutlinedStar from "../OutlinedStar/OutlinedStar";

@@ -1,7 +1,13 @@
 // React Native
-import { NavigationCard } from "@/types/card.types";
-import { useColorScheme } from "nativewind";
 import { View } from "react-native";
+
+// Types
+import { NavigationCard } from "@/types/card.types";
+
+// Styles
+import { useColorScheme } from "nativewind";
+
+// Components
 import CustomAnimatedNavigationButton from "../CustomAnimatedNavigationButton/CustomAnimatedNavigationButton";
 
 interface PrepareMenuCardDriveProps {

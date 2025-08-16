@@ -18,6 +18,7 @@ import KrakenIcon from "../assets/icons/kraken_icon.svg";
 import LineScan from "../assets/icons/line-scan.svg";
 import LockOpen from "../assets/icons/lock-open.svg";
 import Lock from "../assets/icons/lock.svg";
+import Logout from "../assets/icons/logout.svg";
 import MoonOff from "../assets/icons/moon-off.svg";
 import Moon from "../assets/icons/moon.svg";
 import OgreIcon from "../assets/icons/ogre_icon.svg";
@@ -78,6 +79,7 @@ export const ICON_MAPPING = {
   ogreIcon: OgreIcon,
   redIcon: RedIcon,
   playFilled: PlayFilled,
+  logout: Logout,
 };
 
 export type IconName = keyof typeof ICON_MAPPING;

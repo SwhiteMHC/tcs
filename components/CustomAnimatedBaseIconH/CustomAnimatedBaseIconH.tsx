@@ -1,7 +1,11 @@
-// components/Icon.tsx
-import { ICON_MAPPING, IconName } from "@/types/icons.types";
-import { useColorScheme } from "nativewind";
+// React
 import React, { useEffect, useRef } from "react";
+
+// Types
+import { ICON_MAPPING, IconName } from "@/types/icons.types";
+
+// Style
+import { useColorScheme } from "nativewind";
 import { Animated, View } from "react-native";
 import { SvgProps } from "react-native-svg";
 

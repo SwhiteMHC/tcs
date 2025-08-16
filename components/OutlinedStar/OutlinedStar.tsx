@@ -1,3 +1,4 @@
+// Components
 import CustomIcon from "../CustomIcon/CustomIcon";
 
 interface OutlinedStarProps {

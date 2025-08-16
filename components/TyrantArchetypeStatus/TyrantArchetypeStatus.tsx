@@ -1,7 +1,13 @@
 // React Native
-import { IconName } from "@/types/icons.types";
-import { observer } from "mobx-react-lite";
 import { Text, View } from "react-native";
+
+// Types
+import { IconName } from "@/types/icons.types";
+
+// Store
+import { observer } from "mobx-react-lite";
+
+// Components
 import CustomIcon from "../CustomIcon/CustomIcon";
 import DynamicFlexFiller from "../DynamicFlexFiller/DynamicFlexFiller";
 

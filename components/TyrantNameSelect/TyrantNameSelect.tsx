@@ -1,7 +1,11 @@
 // React Native
+import { Text, TouchableOpacity, View } from "react-native";
+
+// Store
 import { useStore } from "@/store/provider";
 import { observer } from "mobx-react-lite";
-import { Text, TouchableOpacity, View } from "react-native";
+
+//Components
 import CustomIcon from "../CustomIcon/CustomIcon";
 
 interface TyrantNameSelectProps {

@@ -2,8 +2,8 @@ import { NavigationCard } from "@/types/card.types";
 
 export const mainMenuCardDrive: NavigationCard[] = [
   {
-    title: "Exit",
-    icon: "run",
+    title: "Log Out",
+    icon: "logout",
     size: 32,
     flip: true,
     shouldAnimate: false,
